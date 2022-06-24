@@ -34,7 +34,7 @@
     "jsonlint": "^1.6.3",
     "lint-staged": "^12.0.2",
     "next": "^12.0.0",
-    "next-sitemap": "^2.1.5",
+    "next-sitemap": "^3.0.3",
     "prettier": "2.6.2",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",

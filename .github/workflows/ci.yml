@@ -1,28 +1,31 @@
 name: CI
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 jobs:
   ci:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     steps:
-    - uses: actions/checkout@v2
-    - name: Install Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install dependencies 📦
-      run: yarn
-    - name: Lint 🎨
-      run: yarn run lint
-    - name: Flow types 🏷
-      run: yarn run flow
-    - name: Tests ✅
-      run: yarn run test
-    - name: Gitmojis validation 😜
-      run: yarn run validate:gitmojis
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - name: Install Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          cache: "pnpm"
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies 📦
+        run: pnpm install
+      - name: Lint 🎨
+        run: pnpm turbo lint
+      - name: TypeScript check 🏷
+        run: pnpm turbo tscheck
+      - name: Tests ✅
+        run: pnpm turbo test

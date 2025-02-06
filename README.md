@@ -5,7 +5,7 @@
 </p>
 <p align="center">
 	<a href="https://github.com/carloscuesta/gitmoji/actions?query=workflow%3ACI+branch%3Amaster">
-		<img src="https://img.shields.io/github/workflow/status/carloscuesta/gitmoji/CI?style=flat-square"
+		<img src="https://img.shields.io/github/actions/workflow/status/carloscuesta/gitmoji/ci.yml?branch=master&style=flat-square"
 			 alt="Build Status">
 	</a>
 	<a href="https://gitmoji.dev">
@@ -40,7 +40,7 @@ In case you need some ideas to integrate gitmoji in your project, here's a pract
 
 - `intention`: An emoji from the list.
 - `scope`: An optional string that adds contextual information for the scope of the change.
-- `message:` A brief explanation of the change.
+- `message`: A brief explanation of the change.
 
 ## Contributing to gitmoji
 
@@ -52,7 +52,10 @@ Are you using Gitmoji on your project? Set the Gitmoji badge on top of your read
 
 ```html
 <a href="https://gitmoji.dev">
-  <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji">
+  <img
+    src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
+    alt="Gitmoji"
+  />
 </a>
 ```
 
